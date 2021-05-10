@@ -1,0 +1,33 @@
+{
+  "name": "twitter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.7.4",
+    "core-js": "^3.9.1",
+    "dynamic-antd-theme": "^0.8.3",
+    "less": "^2.5.3",
+    "less-loader": "^7.3.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.15.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "sass": "^1.32.12",
+    "sass-loader": "10"
+  }
+}
