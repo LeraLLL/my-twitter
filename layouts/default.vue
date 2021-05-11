@@ -1,16 +1,46 @@
 <template>
-  <div :class="theme === 'light' ? 'light' : 'dark'">
+  <div v-if="currentTheme" :class="theme">
     <Nuxt />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   computed: {
     ...mapGetters([
       'theme'
     ])
+  },
+  data () {
+    return {
+      currentTheme: null
+    }
+  },
+  methods: {
+    ...mapMutations([
+      'setTheme'
+    ]),
+    loadStyle (theme) {
+      if (theme === 'light') {
+        import('@/assets/style/light.less')
+      } else {
+        import('@/assets/style/dark.less')
+      }
+    }
+  },
+  watch: {
+    theme: {
+      handler (theme, oldTheme) {
+        localStorage.setItem('currentTheme', theme)
+      }
+    }
+  },
+  mounted () {
+    this.currentTheme = localStorage.getItem('currentTheme') || 'light'
+    this.setTheme(this.currentTheme)
+    this.loadStyle(this.currentTheme)
   }
 }
 </script>

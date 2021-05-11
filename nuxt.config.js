@@ -14,7 +14,7 @@ export default {
     ]
   },
   css: [
-    '~/assets/style/ant.less'
+    'ant-design-vue/dist/antd.less'
   ],
   styleResources: {
     scss: ['~/assets/style/*.scss']

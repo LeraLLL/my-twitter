@@ -4,7 +4,7 @@
       <div class="container">
         <message-form @submit="addMessage" />
       </div>
-      <a-switch @change="onChangeTheme" />
+      <a-switch v-model="themeModel" @change="onChangeTheme" />
     </a-layout-header>
     <a-layout-content>
       <div class="container">
@@ -51,7 +51,18 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['user', 'theme'])
+    ...mapGetters(['user', 'theme']),
+    themeModel: {
+      get () {
+        return this.theme === 'dark'
+      },
+      set (val) {
+        this.$notification.info({
+          message: 'refresh the page to change the theme'
+        })
+        return val
+      }
+    }
   },
   watch: {
     messages: {
